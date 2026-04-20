@@ -48,8 +48,8 @@ def get_ticker_data(ticker, start, end):
         return None
 
     # reset index to have date as a column, and then add ticker as column
-    # df = df.reset_index()
-    # df.insert(0, "Ticker", ticker)
+    df = df.reset_index()
+    df.insert(0, "Ticker", ticker)
 
     # df["return_1d"] = df["Close"].pct_change()
     # df["return_5d_fwd"] = df["Close"].shift(-5) / df["Close"] - 1
