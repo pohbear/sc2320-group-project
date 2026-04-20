@@ -1,2 +1,6 @@
 /backup.py
 /sp500_gspc_23-26_data.csv
+venv/
+__pycache__/
+venv*
+
