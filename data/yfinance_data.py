@@ -5,14 +5,21 @@ import requests
 import yfinance as yf
 import pandas as pd
 
-# ticker = "^GSPC"  # S&P 500 index
-
-
 # date range
 start = "2023-01-01"
 end = "2026-04-01"
 
-output_file = "ticker_data.csv"
+# file path and names
+RAW_DIR = "data/raw"
+PROCESSED_DIR = "data/processed"
+BASE_FILE = os.path.join(RAW_DIR, "base_tickers.csv")
+OUTPUT_FILE = os.path.join(PROCESSED_DIR, "ticker_data.csv")
+VALID_FILE = os.path.join(PROCESSED_DIR, "valid_tickers.csv")
+ERROR_FILE = os.path.join(PROCESSED_DIR, "error_tickers.csv")
+
+# file check
+os.makedirs(RAW_DIR, exist_ok=True)
+os.makedirs(PROCESSED_DIR, exist_ok=True)
 
 def read_ticker_list(filename):
     if not os.path.exists(filename):
@@ -89,24 +96,22 @@ def get_snp_tickers():
     return tickers_df
 
 if __name__ == "__main__":
+    ticker_list = read_ticker_list(BASE_FILE)
     
-
-    ticker_list = read_ticker_list("base_tickers.csv")
     for ticker in ticker_list:
         t = get_ticker_data(ticker, start, end)
-        filename = output_file if output_file else f"{ticker}_{start}_{end}_data.csv"
         if t is None:
-            with open("error_tickers.csv", "a", newline="", encoding="utf-8") as f:
+            with open(ERROR_FILE, "a", newline="", encoding="utf-8") as f:
                 writer = csv.writer(f)
                 writer.writerow([ticker])
         else:
             # save to CSV
-            with open("valid_tickers.csv", "a", newline="", encoding="utf-8") as f:
+            with open(VALID_FILE, "a", newline="", encoding="utf-8") as f:
                 writer = csv.writer(f)
                 writer.writerow([ticker])
-            t.to_csv(filename, mode="a", index=False, header=not os.path.exists(filename))
+            t.to_csv(OUTPUT_FILE, mode="a", index=False, header=not os.path.exists(OUTPUT_FILE))
             print(t.head())
-            print(f"Saved {len(t)} rows to {filename}")
+            print(f"Saved {len(t)} rows to {OUTPUT_FILE} for {ticker}")
 
     ##### USED TO GET CLEANED TICKER LIST FROM RAW CAPITOL TRADE DATA #####
     ##### STILL NEED TO CLEAN THE TICKER LIST MANUALLY TO FIX ERRORS BEFORE USING IT TO GET DATA #####
