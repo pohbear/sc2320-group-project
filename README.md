@@ -4,8 +4,9 @@
 project/
 ├── data/
 │   └── processed/
-│       ├── capitol_trades_clean.csv
-│       └── analytical_dataset.csv
+│        └── cleaned/
+│           ├── capitol_trades_clean.csv
+│           └── all_stocks_clean.csv
 └── README.md
 ```
 
