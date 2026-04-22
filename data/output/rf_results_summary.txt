@@ -11,28 +11,28 @@ Class balance (Y=1): 45.2%
 
 Model Configuration:
   Algorithm        : Random Forest (Spark MLlib)
-  Best numTrees    : 300
-  Best maxDepth    : 10
-  CV Folds         : 5
-  Best CV AUC      : 0.7867
+  Tuning method    : Fixed config + internal validation split
+  numTrees         : 200
+  maxDepth         : 10
+  Validation AUC   : 0.7782
 
 Test Set Performance:
-  AUC-ROC          : 0.7790
+  AUC-ROC          : 0.7700
   Interpretation   : Good — model has meaningful predictive power
-  True Positives   : 441
-  True Negatives   : 807
-  False Positives  : 174
-  False Negatives  : 349
+  True Positives   : 437
+  True Negatives   : 799
+  False Positives  : 182
+  False Negatives  : 353
 
 Top 5 Most Important Features:
-  #1   blind_intensity                     0.1546
-  #2   abn_ret_mean                        0.1464
-  #3   abn_ret_max                         0.0864
-  #4   sigma_30                            0.0861
-  #5   filed_after_days                    0.0845
+  #1   z_car                               0.1052
+  #2   car_blind_spot                      0.0994
+  #3   blind_intensity                     0.0894
+  #4   abn_ret_max                         0.0840
+  #5   abn_ret_mean                        0.0839
 
-Committee Assignment Rank: #10
-Committee finding: SIGNIFICANT — committee assignment is a top predictor, consistent with domain-specific information advantage.
+Committee Assignment Rank: #12
+Committee finding: LIMITED — committee assignment does not rank as a top predictor. Other factors drive congressional trade outcomes.
 
 Limitations:
   - Committee data approximated from public records (not from dataset)
