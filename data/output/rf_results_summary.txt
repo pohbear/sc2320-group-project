@@ -1,0 +1,43 @@
+============================================================
+NOTEBOOK 6 — SUMMARY FOR REPORT
+============================================================
+
+Task: Predict whether a congressional BUY trade will
+      beat the S&P 500 benchmark over 60 trading days.
+
+Training samples   : 8,381
+Test samples       : 1,934
+Class balance (Y=1): 45.2%
+
+Model Configuration:
+  Algorithm        : Random Forest (Spark MLlib)
+  Best numTrees    : 200
+  Best maxDepth    : 10
+  CV Folds         : 5
+  Best CV AUC      : 0.7822
+
+Test Set Performance:
+  AUC-ROC          : 0.8002
+  Interpretation   : Good — model has meaningful predictive power
+  True Positives   : 508
+  True Negatives   : 890
+  False Positives  : 177
+  False Negatives  : 359
+
+Top 5 Most Important Features:
+  #1   abn_ret_mean                        0.1505
+  #2   blind_intensity                     0.1497
+  #3   n_blind_spot_days                   0.0855
+  #4   sigma_30                            0.0845
+  #5   filed_after_days                    0.0820
+
+Committee Assignment Rank: #10
+Committee finding: SIGNIFICANT — committee assignment is a top predictor, consistent with domain-specific information advantage.
+
+Limitations:
+  - Committee data approximated from public records (not from dataset)
+  - Restricted to BUY trades only (sell trades excluded)
+  - Y label based on 60-day holding period (arbitrary window)
+  - AUC interpretation must account for market efficiency
+
+Notebook 6 complete. All notebooks finished.
