@@ -30,7 +30,7 @@ source venv/bin/activate  # On Windows use: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-*(Note: PySpark requires a Java runtime environment. On Ubuntu, you can install it via `sudo apt-get install openjdk-17-jdk-headless` and set your `JAVA_HOME` environment variable accordingly.)*
+*(Note: In our notebook, there is no pip installation cells, so please do install all the required dependencies on your environment before running the cells.)*
 
 ## Usage
 
