@@ -5,31 +5,31 @@ NOTEBOOK 6 — SUMMARY FOR REPORT
 Task: Predict whether a congressional BUY trade will
       beat the S&P 500 benchmark over 60 trading days.
 
-Training samples   : 8,381
-Test samples       : 1,934
+Training samples   : 7,663
+Test samples       : 1,771
 Class balance (Y=1): 45.2%
 
 Model Configuration:
   Algorithm        : Random Forest (Spark MLlib)
-  Best numTrees    : 200
+  Best numTrees    : 300
   Best maxDepth    : 10
   CV Folds         : 5
-  Best CV AUC      : 0.7822
+  Best CV AUC      : 0.7867
 
 Test Set Performance:
-  AUC-ROC          : 0.8002
+  AUC-ROC          : 0.7790
   Interpretation   : Good — model has meaningful predictive power
-  True Positives   : 508
-  True Negatives   : 890
-  False Positives  : 177
-  False Negatives  : 359
+  True Positives   : 441
+  True Negatives   : 807
+  False Positives  : 174
+  False Negatives  : 349
 
 Top 5 Most Important Features:
-  #1   abn_ret_mean                        0.1505
-  #2   blind_intensity                     0.1497
-  #3   n_blind_spot_days                   0.0855
-  #4   sigma_30                            0.0845
-  #5   filed_after_days                    0.0820
+  #1   blind_intensity                     0.1546
+  #2   abn_ret_mean                        0.1464
+  #3   abn_ret_max                         0.0864
+  #4   sigma_30                            0.0861
+  #5   filed_after_days                    0.0845
 
 Committee Assignment Rank: #10
 Committee finding: SIGNIFICANT — committee assignment is a top predictor, consistent with domain-specific information advantage.
